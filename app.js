@@ -173,7 +173,7 @@ document.addEventListener('DOMContentLoaded', () => {
             allSkewElements.forEach((e) => {
                 gsap.to(e, {
                     transform: "skew(0deg, 0deg)",
-                    duration: 1,
+                    duration: 0.5,
                     ease: "none",
                 })
 
@@ -185,9 +185,11 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             allSkewElements.forEach((e) => {
                 let calcSkew = (startScrollSkew - this.scrollY) * 0.004
+                calcSkew = calcSkew > 3 ? 3 : calcSkew
+                calcSkew = calcSkew < -3 ? -3 : calcSkew
                 gsap.to(e, {
                     transform: `skew(0deg, ${calcSkew}deg)`,
-                    duration: 1,
+                    duration: 0.5,
                     ease: "none",
                 })
             })
@@ -198,3 +200,17 @@ document.addEventListener('DOMContentLoaded', () => {
         }, false);
     })
 })
+window.addEventListener("load", () => {
+    const load = document.querySelector(".loader");
+    gsap.to(load, {
+        translateY: "-200%",
+        opacity: 1,
+        duration: 2,
+        ease: "power3.inOut",
+    });
+    // restore scroll after loader finishes
+    tl.add(() => {
+        document.body.style.overflow = "auto";
+        document.body.style.overflowX = "hidden";
+    });
+});

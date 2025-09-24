@@ -5,6 +5,11 @@
     font-family: 'Viga', sans-serif;
 }
 
+.loader {
+    translate: 0px 0px;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+}
+
 .hero {
     min-height: 100vh;
     background: linear-gradient(to bottom right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5)), url(public/used-assets/01.jpg) no-repeat;
@@ -14,7 +19,7 @@
 }
 
 body {
-    overflow-x: hidden;
+    overflow: hidden;
 }
 
 .mission,
