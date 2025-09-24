@@ -24,7 +24,6 @@ document.addEventListener('DOMContentLoaded', () => {
             scrub: true
         }
     });
-
     svgs.forEach((svg, i) => {
         tl.to(svg, {
             x: "0%",
@@ -52,7 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
         scrollTrigger: {
             trigger: whoiam,
             start: "bottom bottom",
-            end: "+=" + innerHeight * 4,
+            end: "+=" + innerHeight * 3,
             scrub: true,
             pin: true,
         }
@@ -94,28 +93,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     })
 
-    // let bright = document.querySelector(".bright-section");
-    // let brightHeading = bright.querySelector("h1");
-    // let Split = SplitText.create(brightHeading, {
-    //     type: "lines",
-    //     mask: "lines"
-    // })
-    // gsap.set(Split.lines, {
-    //     y: "125%",
-    // });
-    // ScrollTrigger.create({
-    //     trigger: bright,
-    //     start: "top-=400 top",
-    //     onUpdate: () => {
-    //         gsap.to(Split.lines, {
-    //             y: "0%",
-    //             duration: 0.7,
-    //             ease: "power3.out",
-    //             stagger: 0.09
-    //         })
-    //     },
-    // })
-    //
     let allSections = document.querySelectorAll("section");
     Array.from(allSections).forEach((section) => {
         // char split
@@ -209,8 +186,6 @@ window.addEventListener("load", () => {
         ease: "power3.inOut",
     });
     // restore scroll after loader finishes
-    tl.add(() => {
-        document.body.style.overflow = "auto";
-        document.body.style.overflowX = "hidden";
-    });
+    document.body.style.overflow = "auto";
+    document.body.style.overflowX = "hidden";
 });

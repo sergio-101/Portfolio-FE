@@ -44,18 +44,18 @@ body {
 }
 
 
-.whoiam-pre .whoiam-svg:nth-child(1) {
+.whoiam-svg-1 {
     translate: -100% 0;
 }
 
-.whoiam-pre .whoiam-svg:nth-child(2) {
+.whoiam-svg-2 {
     background: rgba(11, 11, 11, 1);
     position: relative;
     z-index: 2;
     translate: 100% 0;
 }
 
-.whoiam-pre .whoiam-svg:nth-child(3) {
+.whoiam-svg-3 {
     translate: -100% 0;
 }
 
