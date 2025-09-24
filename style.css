@@ -1,0 +1,148 @@
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=Bebas+Neue&family=Viga&display=swap');
+
+* {
+    font-family: 'Viga', sans-serif;
+}
+
+.hero {
+    min-height: 100vh;
+    background: linear-gradient(to bottom right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5)), url(public/01.jpg) no-repeat;
+    /* background-image: url(public/01.jpg); */
+    background-size: cover;
+    background-position: center;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+.mission,
+.whoiam,
+.whoiam-pre {
+    color: rgb(234, 219, 200);
+    background: rgba(11, 11, 11, 1);
+}
+
+.mission h1 {
+    font-weight: 1000;
+}
+
+.mask {
+    background: rgba(11, 11, 11, 0.5);
+}
+
+.whoiam-pre {
+    width: 100vw;
+    background: rgba(11, 11, 11, 1);
+    overflow: hidden;
+}
+
+
+.whoiam-pre .whoiam-svg:nth-child(1) {
+    translate: -100% 0;
+}
+
+.whoiam-pre .whoiam-svg:nth-child(2) {
+    background: rgba(11, 11, 11, 1);
+    position: relative;
+    z-index: 2;
+    translate: 100% 0;
+}
+
+.whoiam-pre .whoiam-svg:nth-child(3) {
+    translate: -100% 0;
+}
+
+.whoiam-pre .whoiam-svg {
+    height: calc(100vh / 3);
+    will-change: translate;
+}
+
+.whoiam .image-wrapper {
+    pointer-events: none;
+    position: absolute;
+    right: 0;
+    top: 0;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+}
+
+.whoiam img {
+    position: absolute;
+    right: -50%;
+    bottom: 0%;
+    z-index: 1;
+}
+
+.whoiam h1,
+.whoiam-pre h1 {
+    position: relative;
+    font-weight: 1000;
+    z-index: 2;
+    color: rgb(254, 233, 206);
+    ;
+}
+
+.trait {
+    pointer-events: none;
+}
+
+.bright-section {
+    color: rgb(239, 81, 67);
+    background: rgb(254, 233, 206);
+    position: relative;
+    font-weight: 900;
+}
+
+.img-slider {
+    background: rgb(254, 233, 206);
+    overflow-x: hidden;
+}
+
+.img-slider>.images {
+    translate: 0px 0px;
+}
+
+.img-slider>.images-2 {}
+
+.img-slider img {
+    width: 300px;
+    aspect-ratio: 5/3;
+    max-width: max-content;
+    object-fit: cover;
+}
+
+.img-slider h1 {
+    font-weight: 1000;
+}
+
+.teams {
+    background: rgba(11, 11, 11, 1);
+}
+
+.teams h1 {
+    color: rgb(234, 219, 200);
+    font-weight: 900;
+}
+
+.outro {
+    background: rgb(11, 11, 11);
+    color: rgb(275, 178, 97);
+    font-weight: 1000;
+}
+
+.footer {
+    background: rgb(11, 11, 11);
+    color: rgb(78, 78, 78)
+}
+
+@media (min-width: 1024px) {
+    .img-slider img {
+        width: 300px;
+        aspect-ratio: 5/3;
+        max-width: max-content;
+        object-fit: cover;
+    }
+}
