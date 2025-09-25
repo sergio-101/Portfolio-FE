@@ -50,20 +50,22 @@ document.addEventListener('DOMContentLoaded', () => {
         scrollTrigger: {
             trigger: whoiam,
             start: "bottom bottom",
-            end: "+=" + innerHeight * 3,
+            end: "+=" + innerHeight * 2,
             scrub: true,
             pin: true,
         }
     });
     tl2.to(".trait", {
         position: "relative",
-        scale: 150,
+        scale: 50,
         ease: "none",
     }, 0);
-    // tl2.to(".bright-section", {
-    //     y: "-40%",
-    //     ease: "none",
-    // }, 0);
+    tl2.to(".trait>div", {
+        position: "relative",
+        scale: 3,
+        ease: "none",
+    }, 0.5);
+
     let slider = document.querySelector(".img-slider");
     ScrollTrigger.create({
         trigger: slider,
