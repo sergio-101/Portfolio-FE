@@ -11,7 +11,6 @@ document.addEventListener('DOMContentLoaded', () => {
         lenis.raf(time * 1000);
     })
     gsap.ticker.lagSmoothing(0);
-
     let whoiam = document.querySelector(".whoiam-pre");
     let svgs = whoiam.querySelectorAll(".whoiam-svg");
 
@@ -29,12 +28,12 @@ document.addEventListener('DOMContentLoaded', () => {
             x: "0%",
         }, 0);
     });
-    tl.to(svgs[0], {
+    tl.to(svgs[0].querySelector("svg"), {
         x: "0%",
         y: "100%",
         opacity: 0,
     }, 0.5);
-    tl.to(svgs[2], {
+    tl.to(svgs[2].querySelector("svg"), {
         x: "0%",
         y: "-100%",
         opacity: 0,
@@ -57,10 +56,14 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
     tl2.to(".trait", {
-        scale: 130,
-        ease: "none"
+        position: "relative",
+        scale: 150,
+        ease: "none",
     }, 0);
-
+    // tl2.to(".bright-section", {
+    //     y: "-40%",
+    //     ease: "none",
+    // }, 0);
     let slider = document.querySelector(".img-slider");
     ScrollTrigger.create({
         trigger: slider,
@@ -85,7 +88,6 @@ document.addEventListener('DOMContentLoaded', () => {
         scrub: true,
         pin: true,
         onUpdate: (self) => {
-            console.log(self.progress * self.end, document.querySelector(".teams-pc").clientTop, self.progress * self.end - document.querySelector(".teams-pc").getBoundingClientRect().top)
             gsap.to(".teams-pc", {
                 translateX: (-2 * innerWidth * self.progress) + "px",
                 ease: "power3.out",
@@ -132,7 +134,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 trigger: heading,
                 start: heading.dataset.start ? heading.dataset.start : `top-=${innerHeight / 2} top`,
                 onEnter: () => {
-                    console.log(heading)
                     gsap.to(Split.lines, {
                         y: "0%",
                         duration: 0.7,
@@ -176,7 +177,45 @@ document.addEventListener('DOMContentLoaded', () => {
             timerSkew = setTimeout(doAfterStoppedSkew, 20);
         }, false);
     })
+
+
+    fillBg(".mission", "`top+=${i * 80 - 805} top`", "`top+=${i * 80 - 605} top`", "linear-gradient(90deg, rgb(275, 178, 97) 50%, rgb(78, 78, 78) 0px)")
+    fillBg(".bright-section", "`top+=${i * 30 - innerHeight + 100} top`", "`top+=${i * 30 - innerHeight + 250 } top`", "linear-gradient(90deg,rgb(239,81,67) 50%,rgba(239,81,67,.2) 0)")
+
+    // this line
+    // fillBg(".whoiam-pre", "`top+=${i * 70 - 100} top`", "`top+=${i * 70} top`", "linear-gradient(90deg, rgb(254 233 206) 50%, rgb(78, 78, 78) 0px)")
+
 })
+
+function fillBg(section, start, end, bg) {
+    document.querySelector(section).querySelectorAll(".fill-bg").forEach((heading) => {
+        let Split = SplitText.create(heading, {
+            type: "words",
+            mask: "words"
+        })
+        Array.from(Split.words).forEach((word, i) => {
+            word.style.backgroundClip = "text"
+            word.style.backgroundRepeat = "no-repeat"
+            word.style.color = "transparent"
+            word.style.backgroundImage = bg,
+                word.style.backgroundSize = "200% 100%"
+            word.style.backgroundPosition = "100% 0"
+            ScrollTrigger.create({
+                trigger: section,
+                start: eval(start),
+                end: eval(end),
+                scrub: true,
+                animation: gsap.fromTo(word, {
+                    backgroundPosition: "100% 0",
+                    ease: "power3.out",
+                }, {
+                    backgroundPosition: "0% 0",
+                    ease: "power3.out",
+                })
+            })
+        })
+    })
+}
 window.addEventListener("load", () => {
     const load = document.querySelector(".loader");
     gsap.to(load, {

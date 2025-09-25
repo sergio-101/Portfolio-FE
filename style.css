@@ -29,13 +29,14 @@ body {
     background: rgba(11, 11, 11, 1);
 }
 
+
 .mission h1 {
     font-weight: 1000;
+    /* background: rgba(11, 11, 11, 0.1); */
+    /* clip-path: polygon(0% 0%, 100% 0%, 100% 39.9512%, 0% 39.9512%); */
+    position: relative;
 }
 
-.mask {
-    background: rgba(11, 11, 11, 0.5);
-}
 
 .whoiam-pre {
     width: 100vw;
@@ -60,6 +61,8 @@ body {
 }
 
 .whoiam-pre .whoiam-svg {
+    overflow: hidden;
+    background: transparent;
     height: calc(100vh / 3);
     will-change: translate;
 }
@@ -92,6 +95,9 @@ body {
 
 .trait {
     pointer-events: none;
+
+    transform-origin: center center;
+    /* zooms around the center */
 }
 
 .bright-section {
@@ -150,4 +156,6 @@ body {
         max-width: max-content;
         object-fit: cover;
     }
+
+    .mission h1 {}
 }
